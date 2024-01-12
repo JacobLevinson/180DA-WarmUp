@@ -1,0 +1,28 @@
+import numpy as np
+import cv2 as cv
+img = cv.imread('cat.jpg')
+assert img is not None, "file could not be read, check with os.path.exists()"
+px = img[100,100]
+print( px )
+# accessing only blue pixel
+blue = img[100,100,0]
+print( blue )
+img[100,100] = [255,255,255]
+print( img[100,100] )
+
+# accessing RED value
+img.item(10,10,2)
+# modifying RED value
+img.itemset((10,10,2),100)
+img.item(10,10,2)
+
+print(img.shape)
+print(img.size)
+print( img.dtype )
+
+b,g,r = cv.split(img)
+img = cv.merge((b,g,r))
+
+print()
+
+## color spaces
